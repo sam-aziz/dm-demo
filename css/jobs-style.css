@@ -1,0 +1,344 @@
+/*==========================================
+				CONTENT
+===========================================*/
+#container-jobs {
+	height: calc(100% - 35px);
+	height: -moz-calc(100% - 35px);
+	height: -webkit-calc(100% - 35px);
+}
+#content-jobs {
+	width: 100%;
+	height: calc(100% - 5px);
+	height: -moz-calc(100% - 5px);
+	height: -webkit-calc(100% - 5px);
+}
+/*==========================================
+				Tables
+===========================================*/
+#tableGroup {
+	position: absolute;
+	width: 100%;
+	height: calc(100% - 80px);
+	height: -moz-calc(100% - 80px);
+	height: -webkit-calc(100% - 80px);
+	top: 35px;
+}
+#tableHeaders {
+	overflow: hidden;
+	position: relative;
+	left: 1px;
+}
+table {
+	border-collapse:collapse;
+	border:1px solid #778;
+	border-spacing: 0;
+}
+table tr {
+	height: 41px;
+}
+table td {
+	width: 100px;
+	text-align: center;
+	font-size: 12px;
+	padding: 1px;
+	border:1px solid #778;
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+}
+table th {
+	width: 100px;
+	text-align: center;
+	padding: 1px;
+	border:1px solid #778;
+}
+/* HEAD 1 */
+#divHead1 {
+	float: left;
+}
+#tableHead1 tr {
+	height: 30px;
+}
+#tableHead1 th {
+	background-color: rgb(47,63,113);
+	color: #fff;
+	height: 77px;
+}
+/* HEAD 2 */
+#divHead2 {
+	width: 100%;
+	overflow: hidden;
+}
+#tableHead2 {
+	width: 100%;
+}
+#tableHead2 tr {
+	height: 30px;
+}
+#tableHead2 th {
+	background-color: rgb(47,63,113);
+	color: #fff;
+}
+#tableBody {
+	height: calc(100% - 105px);
+	height: -moz-calc(100% - 105px);
+	height: -webkit-calc(100% - 105px);
+    border: #e4e4e4 solid 1px;
+}
+
+#divTable1 {
+	height: calc(100% - 17px);
+	height: -moz-calc(100% - 17px);
+	height: -webkit-calc(100% - 17px);
+	position: relative;
+	width: 500px;
+	overflow-y: scroll;
+}
+#divTable1::-webkit-scrollbar {
+	display:none;
+}
+#divTable2 {
+	height: 100%;
+	position: relative;
+	width: 100%;
+	overflow: scroll;
+}
+#table2 {
+	width: 100%;
+}
+.edit-btn {
+	background-color: #fff;
+	font-weight: bold;
+}
+.edit-btn:hover {
+	cursor: pointer;
+}
+.row1 {
+	background-color: #fff;
+	display: '';
+}
+.row2 {
+	background-color: #E4EAF5;
+	display: '';
+}
+.nodisplay {
+	display: none;
+}
+.w1 {
+	width: 100px;
+}
+.w2 {
+	width: 160px;
+}
+.w3 {
+	width: 220px;
+}
+.w4 {
+	width: 280px;
+}
+.w5 {
+	width: 340px;
+}
+.w6 {
+	width: 400px;
+}
+.w7 {
+	width: 460px;
+}
+.w8 {
+	width: 500px;
+}
+.wl1 {
+	width: 120px;
+}
+.wl2 {
+	width: 180px;
+}
+.wl3 {
+	width: 240px;
+}
+.wl4 {
+	width: 300px;
+}
+.wl5 {
+	width: 360px;
+}
+.wl6 {
+	width: 420px;
+}
+.wl7 {
+	width: 480px;
+}
+.wl8 {
+	width: 520px;
+}
+tr.rh1{
+	height: 41px;
+}
+tr.rh2 {
+	height: 82px;
+}
+tr.rh3 {
+	height: 123px;
+}
+tr.rh4 {
+	height: 164px;
+}
+tr.rh5 {
+	height: 164px;
+}
+tr.rh6 {
+	height: 205px;
+}
+tr.rh7 {
+	height: 246px;
+}
+tr.rh8 {
+	height: 287px;
+}
+.in-focus input {
+	width: 99%;
+}
+.editing input {
+	width: 99%;
+	margin: 0;
+}
+.editing button {
+
+}
+.edited {
+	background-color: #ffff99;
+}
+.error1 {
+	background-color: #ffff99;
+}
+.error2 {
+	background-color: #ff9999;
+}
+.success {
+	background-color: #99ff99;
+}
+.failure {
+	background-color: #ff9999;
+}
+.filter-button {
+	background-color: #fff;
+	font-size: 9px;
+	text-align: center;
+}
+.filter-button:hover {
+	cursor: pointer;
+}
+.edit-button:hover {
+	cursor:pointer;
+}
+input.search-input {
+	margin: 0;
+}
+.caret {
+	margin-top: 3px;
+}
+.tableHidden {
+	display: none;
+}
+.tableShow {
+	display: '';
+}
+#page-nav-section {
+	position: absolute;
+	bottom: 2px;
+	margin-bottom: 0px;
+	right: 525px;
+}
+#page-nav {
+	position: absolute;
+	bottom: 2px;
+	right: 715px;
+}
+#page-nav button {
+	border-radius: 5px;
+	background-color: rgb(47,63,113);
+	text-align: left;
+	border: solid 0px;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	width: 30px;
+	text-align: center;
+	cursor: pointer;
+}
+#page-turn {
+	border-radius: 5px;
+	background-color: rgb(47,63,113);
+	text-align: left;
+	border: solid 0px;
+	height: 30px;
+	width: 180px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 0px;
+}
+#page-turn .caret {
+	border-top: 0;
+	border-bottom: 4px solid #fff;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+#page-turn {
+	border-radius: 5px;
+	background-color: rgb(47,63,113);
+	text-align: left;
+	border: solid 0px;
+	height: 30px;
+	width: 180px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 0px;
+}
+.job-btn {
+	position: absolute;
+	bottom: 2px;
+	margin-bottom: 0px;
+	border-radius: 5px;
+	background-color: rgb(47,63,113);
+	text-align: left;
+	border: solid 0px;
+	height: 30px;
+	width: 120px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 0px;
+}
+#download {
+	right: 5px;
+}
+#add-job {
+	right: 135px;
+}
+#import-job {
+	right: 265px;
+}
+#toggle {
+	right: 395px;	
+}
+#highlight {
+	right: 525px;
+}
+.edit-disabled {
+	background-color: rgb(133,47,47);
+}
+.edit-enabled {
+	background-color: rgb(47,133,47);
+}
+.highlighted {
+	background-color: #c6b3ff;
+}
