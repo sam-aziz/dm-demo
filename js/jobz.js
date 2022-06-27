@@ -409,10 +409,10 @@ function getJobs() {
 
 				rowCount = parseInt(data.count);
 
-				$('#tableHead1').html(data.headerLeft);
-				$('#tableHead2').html(data.headerRight);
-				$('#table1').html(data.tableLeft);
-				$('#table2').html(data.tableRight);
+				$('#tableHead1').html(data.headerLeft1);
+				$('#tableHead2').html(data.headerRight1);
+				$('#table1').html(data.tableLeft1);
+				$('#table2').html(data.tableRight1);
 
 				setupPages();
 				setupTables();

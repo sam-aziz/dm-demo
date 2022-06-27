@@ -1,11 +1,11 @@
 <?php
 	#$server = "#######";
-    $server = "###############";
-	$database = "tads_data-monitoring";
+    $server = "localhost";
+	$database = "tracsis_demo";
 	#$dmUsername = "########";
-    $dmUsername = "##########";
+    $dmUsername = "root";
 	#$dmPassword = "############";
-    $dmPassword = "##############";
+    $dmPassword = "";
 
 	try {
 		$pdo = new PDO('mysql:host='.$server.';dbname='.$database, $dmUsername, $dmPassword);

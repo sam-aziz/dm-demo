@@ -9,7 +9,7 @@
 		*	@param $username - Name of user stored in $_SESSION object	
 		*	@param $override - boolean to decide whether to get all column names if not UK
 		*/
-		function __construct($pdo, $username, $override)
+		function __construct($pdo, $username,bool $override)
 		{
 			$this->username = $username;
 

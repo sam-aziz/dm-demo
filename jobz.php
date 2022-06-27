@@ -62,8 +62,8 @@
 				</div>
 
 				<?php if ($userType == "UK"): ?>
-					<button class="job-btn" id="add-job" onclick="location.href='add-job.php'">+ Add Job</button>
-					<button class="job-btn" id="import-job" onclick="location.href='import-job.php'">Import Jobs</button>
+					<!-- <button class="job-btn" id="add-job" onclick="location.href='add-job.php'">+ Add Job</button>
+					<button class="job-btn" id="import-job" onclick="location.href='import-job.php'">Import Jobs</button> -->
 					<!--button class="job-btn" id="highlight" onclick='highlightErrors()'>Highlight Errors</button-->
 				<?php endif; ?>
 
@@ -78,8 +78,8 @@
 					<button id='btn-next' onclick='nextPage()'>&gt;&gt;</button>
 				</div>
 
-				<button class="job-btn edit-disabled" id="toggle" onclick='toggleEdit()'>Editing Disabled</button>
-				<button class="job-btn" id="download" onclick='toCSV()'>Download to CSV</button>
+				<!-- <button class="job-btn edit-disabled" id="toggle" onclick='toggleEdit()'>Editing Disabled</button>
+				<button class="job-btn" id="download" onclick='toCSV()'>Download to CSV</button> -->
 			</div>
 		</div>
 	</div>

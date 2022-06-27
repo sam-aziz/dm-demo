@@ -13,7 +13,7 @@
 		*	@param $user - UserDetails class containing userType and userColumns
 		*	@param $request - Filtering data received in POST object
 		*/
-		function __construct($pdo, $user) {
+		function __construct($pdo,object $user) {
 			$this->pdo = $pdo;
 			$this->userType = $user->getUserType();
 			$this->userRegion = $user->getUserRegion(); 

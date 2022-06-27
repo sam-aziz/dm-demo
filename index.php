@@ -25,12 +25,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$count->execute();
 	$no=$count->rowCount();
 
+	$vars = [$uname,$sash];
+	$prioity = $pdo->prepare("select user_pr from dm_login WHERE USERNAME=? AND PASSWORD=?");
+	$prioity->bindParam(1,$vars[0], PDO::PARAM_STR);
+	$prioity->bindParam(2,$vars[1], PDO::PARAM_STR);
+	$prioity->execute();
+	$yes=$prioity->fetchColumn();
 	if ($no > 0) {
 		session_start();
 		$_SESSION['dmlogin'] = "1";
 		$_SESSION['dmusername'] = $uname;
 		$_SESSION['error'] = "";
-		header ("Location: jobs.php");
+		if ($yes==1) {
+			header ("Location: jobz.php");
+		}
+		if ($yes==0) {
+			header ("Location: jobs.php");
+		}
 	} else {
 		session_start();
 		$_SESSION['dmlogin'] = "";

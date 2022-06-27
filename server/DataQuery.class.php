@@ -180,6 +180,12 @@
 			$tableLeft = $this->generateTable($tableData, $headers, $columnWidths, $rowHeights, 0, 3);
 			$tableRight = $this->generateTable($tableData, $headers, $columnWidths, $rowHeights, 3, count($headers));
 
+			$headerLeft1 = $this->generateHeader1($headers, $columnWidths, 0, 3);
+			$headerRight1 = $this->generateHeader1($headers, $columnWidths, 3, count($headers));
+			$tableLeft1 = $this->generateTable1($tableData, $headers, $columnWidths, $rowHeights, 0, 3);
+			$tableRight1 = $this->generateTable1($tableData, $headers, $columnWidths, $rowHeights, 3, count($headers));
+
+
 			$data = array();
 			$data['count'] = $rowCount[0][0];
 			$data['statement'] = $selectQuery;
@@ -188,6 +194,11 @@
 			$data['headerRight'] = $headerRight;
 			$data['tableLeft'] = $tableLeft;
 			$data['tableRight'] = $tableRight;
+
+			$data['headerLeft1'] = $headerLeft1;
+			$data['headerRight1'] = $headerRight1;
+			$data['tableLeft1'] = $tableLeft1;
+			$data['tableRight1'] = $tableRight1;
 			return $data;
 		}
 
@@ -679,7 +690,7 @@
 
 			$header[1] = "<tr>";
 
-			// Add Edit Header
+			// // Add Edit Header
 			if (!strlen($this->subCon) && $start === 0) {
 				$header[1] .= "<td></td>";
 			}
@@ -717,7 +728,65 @@
 
 			return $header;
 		}
+		private function generateHeader1($headers, $columnWidths, $start, $length) {
+			$header1 = array();
+			$header1[0] = "<tr>";
 
+			// Add Edit Header
+			// if (!strlen($this->subCon) && $start === 0) {
+			// 	$header[0] .= "<th class='w1'>Edit</th>";
+			// }
+
+			for ($col = $start; $col < $start + $length; $col++) {
+				// Break if $start + $length goes above headers array length
+				if ($col > count($headers) - 1 || $col > count($columnWidths) - 1) {
+					break;
+				}
+
+				$header1[0] .= "<th class='w" . $columnWidths[$col] . "'>" . $headers[$col][1] . "</th>";
+			}
+			$header1[0] .= "</tr>";
+
+			$header1[1] = "<tr>";
+
+			// // Add Edit Header
+			// if (!strlen($this->subCon) && $start === 0) {
+			// 	$header[1] .= "<td></td>";
+			// }
+
+			for ($col = $start; $col < $start + $length; $col++) {
+				// Break if $start + $length goes above headers array length
+				if ($col > count($headers) - 1) {
+					break;
+				}
+
+				// Generate Filter Text value if the column is currently filtered
+				$filterText = "Select Filter";
+				if ($this->filter !== null) {
+					foreach ($this->filter as $filter) {
+						if ($filter->column === $headers[$col][0]) {
+							$filterText = $filter->value;
+						}
+					}
+				}
+
+				$header1[1] .= "<td class='filter-button' onclick='getList(\"" . $headers[$col][0] . "\", " . $col . ")'>[ " . $filterText . " ]";
+
+				// Generate Sort Arrow if a sort is currently applied to this column
+				if ($this->sortColumn == $headers[$col][0]) {
+					if ($this->sortOrder === "ASC") {
+						$sortSpan = "<span class='glyphicon glyphicon-arrow-up'></span>";
+					} else {
+						$sortSpan = "<span class='glyphicon glyphicon-arrow-down'></span>";
+					}
+					$header1[1] .= $sortSpan;
+				}
+				$header1[1] .= "</td>";
+			}
+			$header1[1] .= "</tr>";
+
+			return $header1;
+		}
 		/**
 		*	Generates Table Header DOM elements for getJobs
 		*	@param $tableData - Multi-Array of Job Rows and Columns
@@ -756,7 +825,36 @@
 
 			return $table;
 		}
+		private function generateTable1($tableData, $headers, $columnWidths, $rowHeights, $start, $length) {
+			$table1 = array();
+			for ($row = 0; $row < count($tableData); $row++) {
+				$rowClass = ($row % 2 == 0) ? "row1" : "row2";
+				$tableRow = "<tr id='row" . $row . "' class='" . $rowClass . " rh" . $rowHeights[$row] . "'>";
 
+				for ($col = $start; $col < $start + $length; $col++) {
+					// Break if $start + $length goes above headers array length
+					if ($col > count($tableData[0]) - 1) {
+						break;
+					}
+					// // Add Edit Cell
+					// if (!strlen($this->subCon) && $col === 0) {
+					// 	// Add an extra cell that allows the UK Tracsis User the ability to go to the edit-job page
+					// 	$tableRow .= "<td class='w1 edit-button' onclick='editJob(" . $tableData[$row][0] . ")'>Edit</td>";
+					// }
+
+					if ($col < 3) {
+						$tableRow .= "<td class='w" . $columnWidths[$col] . "'>" . $tableData[$row][$col] . "</td>";
+					} else {
+						$tableRow .= "<td class='w" . $columnWidths[$col] . "' onclick='editCell(\"" . $tableData[$row][0]."\", \"" . $headers[$col][0] . "\", this)'>" . $tableData[$row][$col] . "</td>";
+					}
+				}
+
+				$tableRow .= "</tr>";
+				$table1[] = $tableRow;
+			}
+
+			return $table1;
+		}
 		/**
 		*	Generates Table Header DOM elements for getColumnList
 		*	@param $columnData - Array of column values
